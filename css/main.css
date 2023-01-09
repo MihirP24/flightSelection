@@ -1,0 +1,202 @@
+/* 
+ * Main scripts file for the flight schedule website.
+ * Assignment 4, CSCI 1170, Fall 2022
+ * Starter code provided by Dr. Mayra Barrera Machuca
+ */
+
+/* General body styling, body set up as a grid container */
+body {
+	width: 80vw;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(5, auto);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Page banner styling, set to apper on the top row */
+.pg-banner {
+	grid-row: 1/2;
+	grid-column: 1/-1;
+	border-bottom: 5px solid steelblue;
+}
+
+.header-container {
+	padding: 0 0.5em;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* Page footer styling, set to apper on the bottom row */
+.pg-footer {
+	padding: 0 0.5em;
+	grid-row: -3/-2;
+	grid-column: 1/-1;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	border-top: 1px solid gold;
+	font-size: smaller;
+}
+
+/* Navigation elements - primary (main nav in the banner), secondary (smaller nav in the banner) and footer nav. */
+.primary-nav {
+	display: flex;
+}
+
+.primary-nav>a {
+	margin: 0 0 0 1em;
+	color: steelblue;
+	text-decoration: none;
+}
+
+.primary-nav>a:hover,
+.primary-nav>a:active {
+	color: maroon;
+}
+
+.footer-nav {
+	display: flex;
+}
+
+.footer-nav>a {
+	margin: 0 0 0 1em;
+	color: steelblue;
+	text-decoration: none;
+}
+
+.footer-nav>a:hover,
+.footer-nav>a:active {
+	color: maroon;
+}
+
+/* Main content container to include all the flights, adjusting height and margin */
+.container {
+	margin: 10px;
+	min-height: 300px;
+	grid-column: 1/5;
+}
+
+/* giving color and adjusting width,padding to flight section bag*/
+.flights-selection-bag {
+	background-color: rgb(5, 60, 112);
+	color: rgb(164, 226, 244);
+	width: 130%;
+	margin-left: 45px;
+}
+
+/* adjusting width of nav bar and footer */
+.pg-banner,
+.pg-footer {
+	width: 110%;
+}
+
+/* adjusting gap between rows and columns and using grid to arrange content to the flight info box */
+.flight-info {
+	column-gap: 40px;
+	row-gap: 10px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+/* changing content color,background color and giving border to the flight availability info box */
+.flight-availability-info {
+	background-color: lightblue;
+	border: 2px double;
+	color: rgb(15, 73, 115);
+	width: 110%;
+}
+
+/* adding color to heading and aligning text to center*/
+.h1 {
+	color: black;
+	text-align: center;
+}
+
+/* adjusting font style and aligning text to center for the time information */
+.time-info {
+	font-size: small;
+	font-style: italic;
+	text-align: center;
+	color: rgb(15, 73, 115);
+	font-weight: normal;
+}
+
+/* adjusting font style,background color,color, height and width of the list class, also gving padding,width and margin*/
+.list-class {
+	background-color: rgb(5, 60, 112);
+	padding-left: 35px;
+	color: rgb(164, 226, 244);
+	margin-top: 10px;
+	height: fit-content;
+	text-indent: -18px;
+	font-weight: lighter;
+	font-style: normal;
+	text-align: left;
+}
+
+/* aligning select button to center*/
+.sec4 {
+	text-align: center;
+	padding-bottom: 4px;
+}
+
+/* for Mobile View
+ * changing style for the mobile view by using grid to adjust box sizes 
+ * hiding some links like terms and conditions,privacy statement etc. for the mobile view
+ * using padding,width to set more space as per the requirements
+*/
+@media screen and (max-width: 840px) {
+	body {
+		display: grid;
+		grid-template-columns: repeat(1, 2fr);
+	}
+
+	.pg-banner {
+		grid-row: 1;
+		display: inline;
+		font-size: small;
+		width: 170%;
+	}
+
+	.list-class {
+		padding-right: 20px;
+		height: 65px;
+		width: fit-content;
+	}
+
+	.flights-selection-bag {
+		grid-row: 2;
+		grid-column: 6;
+		width: 110px;
+	}
+
+	.container {
+		display: grid;
+		grid-column: 1;
+		grid-row-start: 2;
+		grid-row-end: 3;
+		width: 93%;
+	}
+
+	.container section {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.primary-nav,
+	.footer-nav {
+		visibility: hidden;
+	}
+
+	.pg-footer {
+		grid-row: 4;
+		width: 115%;
+		padding-left: 55%;
+		font-size: smaller;
+	}
+
+}
